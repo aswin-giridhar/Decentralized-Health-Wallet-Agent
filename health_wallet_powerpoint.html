@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Health Wallet Agent - PowerPoint Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .presentation-container {
+            max-width: 100vw;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: white;
+            margin-bottom: 2px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        
+        .slide:nth-child(odd) {
+            background: #f8f9fa;
+        }
+        
+        .slide-content {
+            position: relative;
+            text-align: center;
+            max-width: 95%;
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        
+        .slide h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            line-height: 1.1;
+        }
+        
+        .slide h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #34495e;
+            line-height: 1.2;
+        }
+        
+        .slide h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: #3498db;
+            line-height: 1.2;
+        }
+        
+        .slide p {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            color: #555;
+            font-weight: normal;
+        }
+        
+        .slide ul {
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+        
+        .slide li {
+            margin-bottom: 0.5rem;
+            color: #333;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+        
+        .slide li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 900px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 2px solid #e3e3e3;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        
+        .stat-card h4 {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            margin-bottom: 0.6rem;
+            font-weight: bold;
+        }
+        
+        .stat-card p {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+        
+        .architecture-diagram {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #2c3e50;
+            border: 2px solid #e3e3e3;
+            max-width: 100%;
+            line-height: 1.3;
+        }
+        
+        .bounty-table {
+            width: 100%;
+            max-width: 700px;
+            margin: 1rem auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+            border: 2px solid #e3e3e3;
+        }
+        
+        .bounty-table th,
+        .bounty-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        
+        .bounty-table th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        
+        .bounty-table td {
+            font-size: 0.9rem;
+            color: #333;
+        }
+        
+        .bounty-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .demo-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        .demo-step {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            text-align: left;
+            border: 1px solid #e3e3e3;
+        }
+        
+        .demo-step h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        
+        .demo-step p {
+            color: #555;
+            font-size: 0.9rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .highlight-box {
+            background: #3498db;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            max-width: 100%;
+        }
+        
+        .highlight-box h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .highlight-box p {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 10px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            z-index: 1000;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 20px;
+            }
+            
+            .slide h1 {
+                font-size: 2rem;
+            }
+            
+            .slide h2 {
+                font-size: 1.6rem;
+            }
+            
+            .slide h3 {
+                font-size: 1.2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            
+            .bounty-table th,
+            .bounty-table td {
+                padding: 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">←</button>
+        <button class="nav-btn" onclick="nextSlide()">→</button>
+        <button class="nav-btn" onclick="goToSlide(1)">Start</button>
+    </div>
+    
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">17</span>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Title -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🏥 Decentralized Health Wallet Agent</h1>
+                <h2>Your Health Data. Your Control. Your Future.</h2>
+                <p style="font-size: 1.2rem; margin: 1.5rem 0; font-weight: bold;">UK AI Agent Hackathon EP2</p>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem; border: 2px solid #e3e3e3;">
+                    <p style="font-weight: bold; color: #2c3e50;"><strong>Built with:</strong> TRON • Circle Layer • Kite AI • Cardamon.ai</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🏥 The Healthcare Data Crisis</h2>
+                <div class="highlight-box">
+                    <h3>$4B+ Global Interoperability Problem</h3>
+                </div>
+                <ul>
+                    <li>Patients have zero control over health records</li>
+                    <li>Providers struggle with system interoperability</li>
+                    <li>Insurance claims are slow and fraud-prone</li>
+                    <li>Regulations create compliance nightmares</li>
+                    <li>Payments between stakeholders are inefficient</li>
+                </ul>
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; font-weight: bold; color: #e74c3c;">Healthcare data is fragmented, insecure, and patient-hostile</p>
+            </div>
+        </div>
+
+        <!-- Slide 3: Our Solution -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>💡 Our Solution</h2>
+                <h3>Complete Healthcare Finance & Data Platform</h3>
+                <ul>
+                    <li>Secure Health Records - Patient-controlled, encrypted storage</li>
+                    <li>Instant Payments - Blockchain-based USDC transactions</li>
+                    <li>AI Document Processing - Intelligent categorization & analysis</li>
+                    <li>Auto Compliance - Regulatory splitting & audit trails</li>
+                    <li>Multi-Stakeholder - Patients, providers, insurers unified</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>One platform solves fragmentation, security, and payment issues</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Bounty Strategy -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🏆 Multi-Bounty Alignment</h2>
+                <table class="bounty-table">
+                    <thead>
+                        <tr>
+                            <th>Bounty Track</th>
+                            <th>Our Implementation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TRON AI Payments</strong></td>
+                            <td>Smart contracts + payment processing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TRON AI Wallet</strong></td>
+                            <td>Health-focused wallet with AI management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kite AI</strong></td>
+                            <td>Document processing & security</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Circle Layer</strong></td>
+                            <td>USDC stablecoin transactions</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cardamon.ai</strong></td>
+                            <td>Regulatory compliance splitting</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 1.1rem; margin-top: 1rem; font-weight: bold;">Maximum impact through strategic multi-track integration</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Technical Architecture -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔧 Technical Architecture</h2>
+                <h3>Built for Scale & Security</h3>
+                <div class="architecture-diagram">Frontend (React/TS) ↔ Blockchain (TRON) ↔ AI Services (Kite)
+        ↓                    ↓                      ↓
+Payments (Circle)    Storage (Encrypted)    Compliance (Cardamon)</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>🖥️ Frontend</h4>
+                        <p>React + TypeScript<br>Tailwind CSS</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>⛓️ Blockchain</h4>
+                        <p>TRON Network<br>Smart Contracts</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>🤖 AI Services</h4>
+                        <p>Kite AI<br>Document Processing</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>💰 Payments</h4>
+                        <p>Circle Layer<br>USDC/EURC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: User Personas -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>👤 Multi-Stakeholder Platform</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>🏥 Patients (Primary)</h4>
+                        <p>Tech-savvy millennials/Gen-Z (25-40) seeking privacy, control, and convenience</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>👨‍⚕️ Healthcare Providers</h4>
+                        <p>Need instant patient data access and guaranteed payments</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>🏢 Insurance Companies</h4>
+                        <p>Want fraud-proof claims and automated processing</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; font-weight: bold;">Three distinct user groups, one unified platform</p>
+            </div>
+        </div>
+
+        <!-- Slide 7: Live Demo Flow -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>⚡ Live Demo: Telemedicine Journey</h2>
+                <div class="demo-flow">
+                    <div class="demo-step">
+                        <h4>Step 1: Patient Onboarding</h4>
+                        <p>Connect TRON wallet → KYC verification → Health profile setup</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Step 2: Record Management</h4>
+                        <p>Upload documents → AI processing → Set access permissions</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Step 3: Consultation Payment</h4>
+                        <p>Initiate session ($50 USDC) → Auto payment splitting → Instant access</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Step 4: Compliance & Audit</h4>
+                        <p>Immutable logging → Auto compliance → Complete audit trail</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; font-weight: bold;">End-to-end functionality demonstrated live</p>
+            </div>
+        </div>
+
+        <!-- Slide 8: Security & Compliance -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔒 Enterprise-Grade Protection</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>🔐 Encryption</h4>
+                        <p>AES-256 client-side • User-controlled keys • Zero-knowledge architecture</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>⛓️ Blockchain Security</h4>
+                        <p>TRON immutability • Smart contract auditing • Multi-signature transactions</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>📋 Regulatory Compliance</h4>
+                        <p>HIPAA compliant • GDPR protection • Automated audit trails</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>🤖 AI Security</h4>
+                        <p>Kite AI zero-trust • Document access controls • Privacy-preserving analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Payment Innovation -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>💰 Revolutionary Healthcare Finance</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Circle Layer Integration</h4>
+                        <p>USDC/EURC payments • 2-3 second settlement • <$0.01 transaction fees</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Smart Payment Splitting</h4>
+                        <p>80% provider • 15% compliance • 5% platform • 100% automated</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <h3>Insurance Integration</h3>
+                    <p>Real-time claims → Verified docs → Instant reimbursements</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Market Impact -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎯 Real Pain Points Solved</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>For Patients</h4>
+                        <p>Complete data ownership • End-to-end privacy • Unified healthcare platform</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>For Providers</h4>
+                        <p>Instant record access • Guaranteed payments • Automated compliance</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>For Insurers</h4>
+                        <p>Blockchain-verified claims • Instant processing • Complete transparency</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; font-weight: bold;">Multi-billion dollar market with clear value propositions</p>
+            </div>
+        </div>
+
+        <!-- Slide 11: What's Working Now -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎉 Live Demo Features</h2>
+                <h3 style="color: #27ae60;">✓ Fully Functional Today</h3>
+                <ul>
+                    <li>TRON Wallet Integration - Real TronLink connectivity</li>
+                    <li>File Encryption - AES-256 secure storage</li>
+                    <li>Payment Processing - Circle Layer USDC transactions</li>
+                    <li>AI Document Analysis - Kite AI integration</li>
+                    <li>Compliance Splitting - Automated distribution</li>
+                    <li>Real-time Dashboard - Live analytics</li>
+                    <li>Role-based Access - Multi-user support</li>
+                </ul>
+                <div class="highlight-box">
+                    <p><strong>100% functional - no prototypes, all features work</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Roadmap -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🚀 Scaling Strategy</h2>
+                <div class="demo-flow">
+                    <div class="demo-step">
+                        <h4>Phase 1: MVP ✓ Complete</h4>
+                        <p>Basic wallet • Payments • Documents • Compliance</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Phase 2: Advanced Features</h4>
+                        <p>Mobile app • Analytics • Provider network expansion</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Phase 3: Enterprise</h4>
+                        <p>Hospital integrations • Insurance APIs • Regulatory partnerships</p>
+                    </div>
+                    <div class="demo-step">
+                        <h4>Phase 4: Ecosystem</h4>
+                        <p>Developer platform • Third-party integrations • Global expansion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Business Model -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📈 Sustainable Revenue Streams</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Transaction Fees</h4>
+                        <p>5% per payment<br>$2-5 per transaction</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Premium Features</h4>
+                        <p>Advanced analytics<br>$15-30/month</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Enterprise Licensing</h4>
+                        <p>Hospital systems<br>$10K-50K/year</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Data Insights</h4>
+                        <p>Anonymized analytics<br>Revenue share</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; font-weight: bold;">Multiple revenue streams with clear scalability path</p>
+            </div>
+        </div>
+
+        <!-- Slide 14: Why We Win -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🏆 Hackathon Success Metrics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Technical Excellence</h4>
+                        <p>✓ Multi-bounty integration (4+ tracks)<br>
+                        ✓ Production-ready functionality<br>
+                        ✓ Comprehensive security model</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Market Relevance</h4>
+                        <p>✓ $4B+ addressable market<br>
+                        ✓ Multi-stakeholder solution<br>
+                        ✓ Clear revenue model</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Innovation Impact</h4>
+                        <p>✓ First decentralized health wallet<br>
+                        ✓ AI-powered document processing<br>
+                        ✓ Automated compliance splitting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: The Pitch -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔥 Transform Healthcare Finance</h2>
+                <div class="highlight-box">
+                    <h3>The future of healthcare is decentralized, secure, and patient-controlled.</h3>
+                </div>
+                <p style="font-size: 1.1rem; margin: 1.5rem 0;">Our platform doesn't just solve today's problems—it creates tomorrow's healthcare infrastructure.</p>
+                <ul>
+                    <li>Patients get complete control and privacy</li>
+                    <li>Providers get efficiency and guaranteed payments</li>
+                    <li>Insurers get transparency and fraud prevention</li>
+                    <li>Everyone gets compliance and security by default</li>
+                </ul>
+                <div class="highlight-box" style="margin-top: 1.5rem;">
+                    <p><strong>This is healthcare finance reimagined for the blockchain age.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Live Demo & Q&A -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🙋‍♂️ Ready for Questions</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Live Demonstration Available</h4>
+                        <p>End-to-end user journeys • Real TRON integration • Actual payments • AI analysis</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Technical Deep Dive</h4>
+                        <p>Architecture walkthrough • Security implementation • Bounty integrations • Scaling discussion</p>
+                    </div>
+                </div>
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <p style="font-size: 1.2rem;"><strong>Let's build the future of healthcare together!</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Thank You -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎯 Thank You</h1>
+                <h2>Decentralized Health Wallet Agent</h2>
+                <p style="font-size: 1.2rem; margin: 1.5rem 0; font-weight: bold;">Your Health Data. Your Control. Your Future.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Built with:</h4>
+                        <p>TRON • Circle Layer • Kite AI • Cardamon.ai<br>
+                        React • TypeScript • TailwindCSS • TronWeb</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Contact & Next Steps:</h4>
+                        <p>Live Demo: localhost:3000<br>
+                        Source Code: Available for review<br>
+                        Partnership & Investment: Ready to scale</p>
+                    </div>
+                </div>
+                <p style="font-size: 1.1rem; margin-top: 1.5rem; font-weight: bold;">UK AI Agent Hackathon EP2</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 17;
+        
+        function updateSlideCounter() {
+            document.getElementById('current-slide').textContent = currentSlide;
+            document.getElementById('total-slides').textContent = totalSlides;
+        }
+        
+        function goToSlide(slideNumber) {
+            if (slideNumber >= 1 && slideNumber <= totalSlides) {
+                currentSlide = slideNumber;
+                const slideElement = document.querySelectorAll('.slide')[currentSlide - 1];
+                slideElement.scrollIntoView({ behavior: 'smooth' });
+                updateSlideCounter();
+            }
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                goToSlide(currentSlide);
+            }
+        }
+        
+        function previousSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                goToSlide(currentSlide);
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'ArrowRight':
+                case ' ':
+                    event.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    previousSlide();
+                    break;
+                case 'Home':
+                    event.preventDefault();
+                    goToSlide(1);
+                    break;
+                case 'End':
+                    event.preventDefault();
+                    goToSlide(totalSlides);
+                    break;
+            }
+        });
+        
+        // Initialize
+        updateSlideCounter();
+    </script>
+</body>
+</html>
